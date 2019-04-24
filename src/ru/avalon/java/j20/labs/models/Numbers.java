@@ -27,7 +27,7 @@ public final class Numbers {
      * @param values массив значений
      * @return среднее арифметическое с точностью до типа {@code double}.
      */
-    public static double avg(int[] values) {
+    public static <T extends Number> double avg(T[] values) {
         return (double) sum(values) / values.length;
     }
 
@@ -38,8 +38,8 @@ public final class Numbers {
      * @param b второе значение
      * @return большее из двух значений
      */
-    public static int max(int a, int b) {
-        return a > b ? a : b;
+    public static <T extends Number> double max(T a, T b) {     
+        return a.doubleValue() > b.doubleValue() ? a.doubleValue() : b.doubleValue();
     }
 
     /**
