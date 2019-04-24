@@ -14,9 +14,9 @@ public final class Numbers {
      * @param values массив чисел
      * @return сумма элементов массива
      */
-    public static int sum(int[] values) {
-        int sum = 0;
-        for (int value : values) sum += value;
+    public static <T extends Number> double sum(T[] values) {
+        double sum = 0;
+        for (T value : values) sum += value.doubleValue();
         return sum;
     }
 
