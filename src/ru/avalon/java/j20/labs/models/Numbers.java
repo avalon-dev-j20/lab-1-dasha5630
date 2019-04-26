@@ -11,6 +11,7 @@ public final class Numbers {
     /**
      * Возвращает сумму значений переданного массиа.
      *
+     * @param <T>
      * @param values массив чисел
      * @return сумма элементов массива
      */
@@ -24,6 +25,7 @@ public final class Numbers {
      * Выполняет поиск среднего арифметического заданного
      * массива чисел.
      *
+     * @param <T>
      * @param values массив значений
      * @return среднее арифметическое с точностью до типа {@code double}.
      */
@@ -34,6 +36,7 @@ public final class Numbers {
     /**
      * Возвращает большее из дух переданных значений.
      *
+     * @param <T>
      * @param a перое значение
      * @param b второе значение
      * @return большее из двух значений
@@ -45,11 +48,12 @@ public final class Numbers {
     /**
      * Выполняет поиск максимального значения в массиве.
      *
+     * @param <T>
      * @param values массив значений
      * @return максимальное значение массива
      */
-    public static int max(int[] values) {
-        int result = values[0];
+    public static <T extends Number> double max(T[] values) {
+        double result = values[0].doubleValue();
         for (int i = 1; i < values.length; i++) {
             result = max(result, values[i]);
         }
@@ -59,22 +63,24 @@ public final class Numbers {
     /**
      * Возвращает меньшее из двух переданных значений.
      *
+     * @param <T>
      * @param a первое значение
      * @param b второе значение
      * @return меньшее из дух значений
      */
-    public static int min(int a, int b) {
-        return a < b ? a : b;
+    public static <T extends Number> double min(T a, T b) {
+        return a.doubleValue() < b.doubleValue() ? a.doubleValue() : b.doubleValue();
     }
 
     /**
      * Выполняет поиск минимального значения массива.
      *
+     * @param <T>
      * @param values массив значений
      * @return минимальное значение массива
      */
-    public static int min(int[] values) {
-        int result = values[0];
+    public static <T extends Number> double min(T[] values) {
+        double result = values[0].doubleValue();
         for (int i = 1; i < values.length; i++) {
             result = min(result, values[i]);
         }
