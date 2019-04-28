@@ -1,9 +1,12 @@
 package ru.avalon.java.j20.labs.models;
 
+import java.util.Objects;
+
 /**
  * Представление о человеке.
  */
 public class Person {
+
     /**
      * Имя.
      */
@@ -14,8 +17,7 @@ public class Person {
     private final String surname;
 
     /**
-     * Создаёт экземпляр класса на основании имени и даты
-     * рождения.
+     * Создаёт экземпляр класса на основании имени и даты рождения.
      *
      * @param name имя человека
      * @param surname дата рождения человека
@@ -41,5 +43,19 @@ public class Person {
      */
     public String getSurname() {
         return surname;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Person) {
+            return (this.name == ((Person) o).name) && (this.surname  == ((Person) o).surname) ? true : false;
+        } else {
+            throw new IllegalArgumentException("can't be equals");
+        }
+        // compiled code
+    }
+
+    public int hashCode() {
+        return Objects.hashCode(name + surname);
     }
 }
