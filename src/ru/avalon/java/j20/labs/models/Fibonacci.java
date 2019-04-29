@@ -19,12 +19,7 @@ import java.util.Iterator;
  */
 public class Fibonacci implements Iterable<Integer> {
 
-    private int firstElement = 0;
-    private int secondElement = 1;
-
-    private int i;
     private int n;
-    private int sum;
 
     public Fibonacci(int n) {
         if (n <= 0) {
@@ -34,6 +29,12 @@ public class Fibonacci implements Iterable<Integer> {
     }
 
     private class FibonacciIterator implements Iterator<Integer> {
+
+        private int firstElement = 0;
+        private int secondElement = 1;
+
+        private int i;
+        private int sum;
 
         /**
          * Определяет, есть ли следующее значение последовательности чисел
@@ -55,8 +56,11 @@ public class Fibonacci implements Iterable<Integer> {
         @Override
         public Integer next() {
             i++;
-            if (i == 1) return 0;
-            else if (i == 2)  return 1;
+            if (i == 1) {
+                return 0;
+            } else if (i == 2) {
+                return 1;
+            }
             sum = firstElement + secondElement;
             firstElement = secondElement;
             secondElement = sum;
